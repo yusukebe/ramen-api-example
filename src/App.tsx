@@ -113,7 +113,8 @@ const HomePage = () => {
   const [shops, setShops] = useState<Shop[]>([])
   const [totalCount, setTotalCount] = useState(0)
 
-  const apiRequest = (): Promise<Data> => fetch(`${END_POINT}/shops`).then((x) => x.json())
+  const apiRequest = (): Promise<Data> =>
+    fetch(`${END_POINT}/shops?perPage=100`).then((x) => x.json())
 
   useEffect(() => {
     apiRequest().then((data) => {
